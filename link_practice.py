@@ -20,6 +20,9 @@ class Node:
     def get_data(self):
         return self.data
 
+    def get_data_name(self):
+        return self.data.get_name()
+
     def get_next(self):
         return self.next
 
@@ -46,7 +49,7 @@ class LinkedList:
         lst = ['[']
         tmp = self.first
         while tmp is not None:
-            lst.append(str(tmp.get_data()))
+            lst.append(str(tmp.get_data_name()))
             tmp = tmp.get_next()
 
             if tmp is not None:
@@ -55,15 +58,22 @@ class LinkedList:
         lst.append("]")
         return "".join(lst)
 
+    def get_size(self):
+        return self.size
+
 
 def main():
     lst = LinkedList()
 
     for i in range(5):
-        lst.append(Node(Data(str(i))))
+        lst.append(Node(Data(str("piece of data"))))
 
     print(lst)
+    print(lst.get_size())
+    print(lst.last.get_data())
+    print(lst.last.get_data_name())
 
 
 if __name__ == "__main__":
     main()
+    print('done')
